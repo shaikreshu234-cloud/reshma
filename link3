@@ -1,0 +1,69 @@
+class Node:
+    def __init__(self, data):
+        self.data = data 
+        self.next = None 
+ 
+def printLinkedList(head):
+    currentNode = head 
+    while currentNode != None:
+        print(currentNode.data, end = " --> ")
+        currentNode = currentNode.next
+    print()
+ 
+def insertAtTail(head, ele):
+    temp = Node(ele)
+    if head == None:
+        return temp
+ 
+    tail = head 
+    while tail.next != None:
+        tail = tail.next 
+    tail.next = temp 
+    return head
+ 
+def insertAtHead(head, ele):
+    temp = Node(ele)
+    temp.next = head 
+    return temp
+ 
+ 
+def insertAtSpecificPosition(head, position, ele):
+    if position == 0:
+        return insertAtHead(head, ele)
+ 
+    temp = Node(ele)
+    index = 0 
+    currentNode = head 
+ 
+    while index != position - 1:
+        currentNode = currentNode.next 
+        index += 1 
+ 
+    nextNode = currentNode.next 
+    temp.next = nextNode 
+    currentNode.next = temp 
+    return head
+ 
+ 
+ 
+def deleteTailNode(head):
+    if head == None or head.next == None:
+        return None
+ 
+    previous = None 
+    currentNode = head 
+ 
+    while currentNode.next != None:
+        previous = currentNode 
+        currentNode = currentNode.next 
+ 
+    previous.next = None
+    return head
+ 
+# Task-1
+def deleteHeadNode(head):
+    if head == None:
+        return head 
+    secondNode = head.next 
+    head.next = None 
+    return secondNode
