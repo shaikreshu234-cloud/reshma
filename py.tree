@@ -1,0 +1,9 @@
+class solution(object):
+    def insertIntoBST(self,root,val):
+        if root == none:
+            return Treenode(val)
+        elif root.val > val:
+            root.left = self.insertIntoBST(root.left,val)
+        else:
+            root.roght = self.insertIntoBST(root.right,val)
+        return root
